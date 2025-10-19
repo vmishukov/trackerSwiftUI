@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9140FDEB2EA52AA500152B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140FDE72EA52AA500152B79 /* Assets.xcassets */; };
+		9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE82EA52AA500152B79 /* ContentView.swift */; };
+		9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */; };
+		9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDF12EA52B4F00152B79 /* Trackers.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9140FDCA2E9BBEA800152B79 /* TrackerSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackerSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9140FDE72EA52AA500152B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9140FDE82EA52AA500152B79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSwiftUIApp.swift; sourceTree = "<group>"; };
+		9140FDF12EA52B4F00152B79 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		9140FDCC2E9BBEA800152B79 /* TrackerSwiftUI */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TrackerSwiftUI;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9140FDC72E9BBEA800152B79 /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		9140FDC12E9BBEA800152B79 = {
 			isa = PBXGroup;
 			children = (
-				9140FDCC2E9BBEA800152B79 /* TrackerSwiftUI */,
+				9140FDEA2EA52AA500152B79 /* TrackerSwiftUI */,
 				9140FDCB2E9BBEA800152B79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,33 @@
 				9140FDCA2E9BBEA800152B79 /* TrackerSwiftUI.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9140FDE62EA52AA500152B79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9140FDE82EA52AA500152B79 /* ContentView.swift */,
+				9140FDEE2EA52AD300152B79 /* Trackers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9140FDEA2EA52AA500152B79 /* TrackerSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				9140FDE72EA52AA500152B79 /* Assets.xcassets */,
+				9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */,
+				9140FDE62EA52AA500152B79 /* Views */,
+			);
+			path = TrackerSwiftUI;
+			sourceTree = "<group>";
+		};
+		9140FDEE2EA52AD300152B79 /* Trackers */ = {
+			isa = PBXGroup;
+			children = (
+				9140FDF12EA52B4F00152B79 /* Trackers.swift */,
+			);
+			path = Trackers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				9140FDCC2E9BBEA800152B79 /* TrackerSwiftUI */,
 			);
 			name = TrackerSwiftUI;
 			packageProductDependencies = (
@@ -109,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9140FDEB2EA52AA500152B79 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
+				9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */,
+				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
