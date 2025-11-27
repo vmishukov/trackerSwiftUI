@@ -11,6 +11,7 @@
 		9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE82EA52AA500152B79 /* ContentView.swift */; };
 		9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */; };
 		9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDF12EA52B4F00152B79 /* Trackers.swift */; };
+		91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E952ED8A1F9007DA803 /* AddTrackersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		9140FDE82EA52AA500152B79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSwiftUIApp.swift; sourceTree = "<group>"; };
 		9140FDF12EA52B4F00152B79 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
+		91883E952ED8A1F9007DA803 /* AddTrackersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				9140FDE82EA52AA500152B79 /* ContentView.swift */,
 				9140FDEE2EA52AD300152B79 /* Trackers */,
+				91883E942ED8A1D3007DA803 /* AddTrackers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -70,9 +73,33 @@
 		9140FDEE2EA52AD300152B79 /* Trackers */ = {
 			isa = PBXGroup;
 			children = (
-				9140FDF12EA52B4F00152B79 /* Trackers.swift */,
+				91883E972ED8A9A4007DA803 /* View */,
+				91883E982ED8A9AD007DA803 /* ViewModel */,
 			);
 			path = Trackers;
+			sourceTree = "<group>";
+		};
+		91883E942ED8A1D3007DA803 /* AddTrackers */ = {
+			isa = PBXGroup;
+			children = (
+				91883E952ED8A1F9007DA803 /* AddTrackersView.swift */,
+			);
+			path = AddTrackers;
+			sourceTree = "<group>";
+		};
+		91883E972ED8A9A4007DA803 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9140FDF12EA52B4F00152B79 /* Trackers.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91883E982ED8A9AD007DA803 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +177,7 @@
 				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
 				9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */,
 				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,
+				91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

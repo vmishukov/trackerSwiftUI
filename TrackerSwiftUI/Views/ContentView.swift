@@ -24,7 +24,6 @@ struct ContentView: View {
                     Label("Tracker", systemImage: "long.text.page.and.pencil.fill")
                 }
                 .tag(Tabs.tracker)
-            
             VStack {
                 Image(systemName: "globe")
                     .imageScale(.large)

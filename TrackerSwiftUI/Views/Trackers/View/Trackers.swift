@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct Trackers: View {
+    
     @State private var date = Date()
+    @State private var isSheetOpen: Bool = false
     
     var body: some View {
         NavigationSplitView {
@@ -19,6 +21,7 @@ struct Trackers: View {
             .toolbar() {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
+                        isSheetOpen.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -36,6 +39,9 @@ struct Trackers: View {
             
         } detail: {
             Text("Trackers")
+        }
+        .sheet(isPresented: $isSheetOpen) {
+            AddTrackersView()
         }
     }
 }
