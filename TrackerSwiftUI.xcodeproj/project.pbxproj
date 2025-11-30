@@ -12,6 +12,10 @@
 		9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */; };
 		9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDF12EA52B4F00152B79 /* Trackers.swift */; };
 		91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E952ED8A1F9007DA803 /* AddTrackersView.swift */; };
+		91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */; };
+		91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */; };
+		91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */; };
+		91883EA52EDC52D4007DA803 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA42EDC52D4007DA803 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSwiftUIApp.swift; sourceTree = "<group>"; };
 		9140FDF12EA52B4F00152B79 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
 		91883E952ED8A1F9007DA803 /* AddTrackersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackersView.swift; sourceTree = "<group>"; };
+		91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerView.swift; sourceTree = "<group>"; };
+		91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerEmojiModel.swift; sourceTree = "<group>"; };
+		91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerColorModel.swift; sourceTree = "<group>"; };
+		91883EA42EDC52D4007DA803 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 				9140FDE82EA52AA500152B79 /* ContentView.swift */,
 				9140FDEE2EA52AD300152B79 /* Trackers */,
 				91883E942ED8A1D3007DA803 /* AddTrackers */,
+				91883E992EDAD741007DA803 /* NewTrackerView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -66,6 +75,7 @@
 				9140FDE72EA52AA500152B79 /* Assets.xcassets */,
 				9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */,
 				9140FDE62EA52AA500152B79 /* Views */,
+				91883EA32EDC52B0007DA803 /* Helpers */,
 			);
 			path = TrackerSwiftUI;
 			sourceTree = "<group>";
@@ -100,6 +110,48 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91883E992EDAD741007DA803 /* NewTrackerView */ = {
+			isa = PBXGroup;
+			children = (
+				91883E9C2EDC460B007DA803 /* Model */,
+				91883E9D2EDC4617007DA803 /* View */,
+				91883E9E2EDC461D007DA803 /* ViewModel */,
+			);
+			path = NewTrackerView;
+			sourceTree = "<group>";
+		};
+		91883E9C2EDC460B007DA803 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */,
+				91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		91883E9D2EDC4617007DA803 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91883E9E2EDC461D007DA803 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91883EA32EDC52B0007DA803 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				91883EA42EDC52D4007DA803 /* Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,10 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */,
+				91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */,
 				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
 				9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */,
+				91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */,
 				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,
 				91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */,
+				91883EA52EDC52D4007DA803 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ struct Trackers: View {
     
     @State private var date = Date()
     @State private var isSheetOpen: Bool = false
+    @State private var searchText: String = ""
     
     var body: some View {
         NavigationSplitView {
@@ -43,6 +44,7 @@ struct Trackers: View {
         .sheet(isPresented: $isSheetOpen) {
             AddTrackersView()
         }
+        .searchable(text: $searchText, prompt: "Search a tracker")
     }
 }
 
