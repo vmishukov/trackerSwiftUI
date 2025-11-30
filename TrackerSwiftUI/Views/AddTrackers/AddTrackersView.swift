@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct AddTrackersView: View {
+    
+    @State private var newTrackerViewIsPresented: Bool = false
+    
     var body: some View {
         VStack {
             Text("Add new tracker")
                 .font(Font.system(size: 32, weight: .bold))
                 .padding(.top)
             Spacer()
-            makeAddButton(title: "Add tracker", action: {})
-                .padding(.bottom, 8)
+            makeAddButton(title: "Add tracker", action: {
+                newTrackerViewIsPresented.toggle()
+            })
+            .padding(.bottom, 8)
             makeAddButton(title: "One time action", action: {})
             Spacer()
+        }
+        .sheet(isPresented: $newTrackerViewIsPresented) {
+            NewTrackerView()
         }
     }
 }
