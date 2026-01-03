@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTrackersView: View {
     
     @State private var newTrackerViewIsPresented: Bool = false
+    @State private var oneTimeActionIsPresented: Bool = false
     
     var body: some View {
         VStack {
@@ -17,15 +18,20 @@ struct AddTrackersView: View {
                 .font(Font.system(size: 32, weight: .bold))
                 .padding(.top)
             Spacer()
-            makeAddButton(title: "Add tracker", action: {
+            makeAddButton(title: "Add tracker") {
                 newTrackerViewIsPresented.toggle()
-            })
+            }
             .padding(.bottom, 8)
-            makeAddButton(title: "One time action", action: {})
+            makeAddButton(title: "One time action") {
+                oneTimeActionIsPresented.toggle()
+            }
             Spacer()
         }
         .sheet(isPresented: $newTrackerViewIsPresented) {
-            NewTrackerView()
+            Builder.makeNewTrackerView()
+        }
+        .sheet(isPresented: $oneTimeActionIsPresented) {
+            Builder.makeNewTrackerView(isOneTimeAction: true)
         }
     }
 }
