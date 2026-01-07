@@ -44,6 +44,9 @@ struct NewTrackerView: View {
         .sheet(isPresented: $viewModel.addCategoryIsPresented) {
             AddCategoryView()
         }
+        .sheet(isPresented: $viewModel.scheduleIsPresented) {
+            ScheduleView()
+        }
     }
 }
 
@@ -104,7 +107,7 @@ private extension NewTrackerView {
                 .buttonStyle(.plain)
                 if !viewModel.isOneTimeAction {
                     Button {
-                        
+                        viewModel.scheduleIsPresented.toggle()
                     } label: {
                         HStack {
                             Text("Schedule")
@@ -171,5 +174,5 @@ private extension NewTrackerView {
 }
 
 #Preview {
-    NewTrackerView(viewModel: NewTrackerViewModel(isOneTimeAction: true))
+    NewTrackerView(viewModel: NewTrackerViewModel(isOneTimeAction: false))
 }
