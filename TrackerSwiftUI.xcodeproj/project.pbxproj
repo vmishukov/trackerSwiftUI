@@ -23,6 +23,9 @@
 		91BD3D342EE5AAF5006CB459 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D332EE5AAF5006CB459 /* CategoryModel.swift */; };
 		91BD3D362F03D2A3006CB459 /* NewCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D352F03D2A3006CB459 /* NewCategoryViewModel.swift */; };
 		91BD3D382F04086D006CB459 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D372F04086D006CB459 /* Builder.swift */; };
+		91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D3C2F0901A8006CB459 /* ScheduleView.swift */; };
+		91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D3E2F0901B3006CB459 /* ScheduleViewModel.swift */; };
+		91BD3D422F090D0B006CB459 /* ScheduleWeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D412F090D0B006CB459 /* ScheduleWeekDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		91BD3D332EE5AAF5006CB459 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		91BD3D352F03D2A3006CB459 /* NewCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewModel.swift; sourceTree = "<group>"; };
 		91BD3D372F04086D006CB459 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		91BD3D3C2F0901A8006CB459 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		91BD3D3E2F0901B3006CB459 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		91BD3D412F090D0B006CB459 /* ScheduleWeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWeekDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				91883E992EDAD741007DA803 /* NewTrackerView */,
 				91BD3D262EE599AB006CB459 /* AddCategory */,
 				91BD3D272EE599C0006CB459 /* NewCategory */,
+				91BD3D392F09017B006CB459 /* Schedule */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +238,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		91BD3D392F09017B006CB459 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				91BD3D402F090CBD006CB459 /* Model */,
+				91BD3D3A2F090188006CB459 /* View */,
+				91BD3D3B2F09018D006CB459 /* ViewModel */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		91BD3D3A2F090188006CB459 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91BD3D3C2F0901A8006CB459 /* ScheduleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91BD3D3B2F09018D006CB459 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91BD3D3E2F0901B3006CB459 /* ScheduleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91BD3D402F090CBD006CB459 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				91BD3D412F090D0B006CB459 /* ScheduleWeekDay.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,6 +349,8 @@
 				91883EA72EDF304E007DA803 /* NewTrackerViewModel.swift in Sources */,
 				91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */,
 				91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */,
+				91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */,
+				91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */,
 				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
 				9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */,
 				91BD3D362F03D2A3006CB459 /* NewCategoryViewModel.swift in Sources */,
@@ -316,6 +359,7 @@
 				91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */,
 				91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */,
 				91BD3D2F2EE5A593006CB459 /* NewCategoryView.swift in Sources */,
+				91BD3D422F090D0B006CB459 /* ScheduleWeekDay.swift in Sources */,
 				91883EA52EDC52D4007DA803 /* Extension.swift in Sources */,
 				91BD3D382F04086D006CB459 /* Builder.swift in Sources */,
 			);

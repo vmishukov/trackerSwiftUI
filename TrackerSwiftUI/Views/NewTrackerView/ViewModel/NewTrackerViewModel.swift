@@ -19,6 +19,7 @@ final class NewTrackerViewModel: ObservableObject {
     @Published var titleString: String
     
     @Published var addCategoryIsPresented: Bool = false
+    @Published var scheduleIsPresented: Bool = false
     
     @Published var trackerName: String = ""
     @Published var canCreateTracker: Bool = true
