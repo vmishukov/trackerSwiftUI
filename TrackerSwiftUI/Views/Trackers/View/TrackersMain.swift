@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Trackers: View {
+struct TrackersMain: View {
     
     @State private var date = Date()
     @State private var isSheetOpen: Bool = false
@@ -49,5 +49,5 @@ struct Trackers: View {
 }
 
 #Preview {
-    Trackers()
+    TrackersMain()
 }

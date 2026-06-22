@@ -10,13 +10,14 @@
 		9140FDEB2EA52AA500152B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9140FDE72EA52AA500152B79 /* Assets.xcassets */; };
 		9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE82EA52AA500152B79 /* ContentView.swift */; };
 		9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */; };
-		9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDF12EA52B4F00152B79 /* Trackers.swift */; };
+		9140FDF22EA52B4F00152B79 /* TrackersMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDF12EA52B4F00152B79 /* TrackersMain.swift */; };
 		91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E952ED8A1F9007DA803 /* AddTrackersView.swift */; };
 		91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */; };
 		91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */; };
 		91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */; };
 		91883EA52EDC52D4007DA803 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA42EDC52D4007DA803 /* Extension.swift */; };
 		91883EA72EDF304E007DA803 /* NewTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA62EDF304E007DA803 /* NewTrackerViewModel.swift */; };
+		91B4CEB62F44BFE100384F10 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4CEB52F44BFE100384F10 /* Tracker.swift */; };
 		91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D282EE599E4006CB459 /* AddCategoryView.swift */; };
 		91BD3D2F2EE5A593006CB459 /* NewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D2E2EE5A593006CB459 /* NewCategoryView.swift */; };
 		91BD3D312EE5A5DD006CB459 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D302EE5A5DD006CB459 /* AddCategoryViewModel.swift */; };
@@ -33,13 +34,14 @@
 		9140FDE72EA52AA500152B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9140FDE82EA52AA500152B79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSwiftUIApp.swift; sourceTree = "<group>"; };
-		9140FDF12EA52B4F00152B79 /* Trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trackers.swift; sourceTree = "<group>"; };
+		9140FDF12EA52B4F00152B79 /* TrackersMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersMain.swift; sourceTree = "<group>"; };
 		91883E952ED8A1F9007DA803 /* AddTrackersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackersView.swift; sourceTree = "<group>"; };
 		91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerView.swift; sourceTree = "<group>"; };
 		91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerEmojiModel.swift; sourceTree = "<group>"; };
 		91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerColorModel.swift; sourceTree = "<group>"; };
 		91883EA42EDC52D4007DA803 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		91883EA62EDF304E007DA803 /* NewTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerViewModel.swift; sourceTree = "<group>"; };
+		91B4CEB52F44BFE100384F10 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		91BD3D282EE599E4006CB459 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		91BD3D2E2EE5A593006CB459 /* NewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryView.swift; sourceTree = "<group>"; };
 		91BD3D302EE5A5DD006CB459 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
@@ -123,7 +125,8 @@
 		91883E972ED8A9A4007DA803 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9140FDF12EA52B4F00152B79 /* Trackers.swift */,
+				9140FDF12EA52B4F00152B79 /* TrackersMain.swift */,
+				91B4CEB52F44BFE100384F10 /* Tracker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,13 +349,14 @@
 			files = (
 				91BD3D342EE5AAF5006CB459 /* CategoryModel.swift in Sources */,
 				91BD3D312EE5A5DD006CB459 /* AddCategoryViewModel.swift in Sources */,
+				91B4CEB62F44BFE100384F10 /* Tracker.swift in Sources */,
 				91883EA72EDF304E007DA803 /* NewTrackerViewModel.swift in Sources */,
 				91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */,
 				91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */,
 				91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */,
 				91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */,
 				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
-				9140FDF22EA52B4F00152B79 /* Trackers.swift in Sources */,
+				9140FDF22EA52B4F00152B79 /* TrackersMain.swift in Sources */,
 				91BD3D362F03D2A3006CB459 /* NewCategoryViewModel.swift in Sources */,
 				91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */,
 				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,

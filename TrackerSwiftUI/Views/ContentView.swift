@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         
         TabView(selection: $selectedTab) {
-            Trackers()
+            TrackersMain()
                 .tabItem {
                     Label("Tracker", systemImage: "long.text.page.and.pencil.fill")
                 }
