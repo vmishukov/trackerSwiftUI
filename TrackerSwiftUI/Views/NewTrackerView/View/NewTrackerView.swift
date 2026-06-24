@@ -35,8 +35,8 @@ struct NewTrackerView: View {
             .padding(.horizontal, 20)
             trackersConfigView
             visualConfigGridView
-            bottomView
         }
+        bottomView
         .onReceive(viewModel.$isClosing) { isClosing in
             guard isClosing else { return }
             dismiss()

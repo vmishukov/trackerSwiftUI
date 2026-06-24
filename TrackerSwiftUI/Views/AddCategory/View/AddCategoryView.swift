@@ -23,9 +23,11 @@ struct AddCategoryView: View {
                     makeCategoryView(with: "Plant trees")
                     Divider()
                         .padding(.horizontal)
+                        .background(.gray.opacity(0.2))
                     makeCategoryView(with: "Shower")
                     Divider()
                         .padding(.horizontal)
+                        .background(.gray.opacity(0.2))
                     makeCategoryView(with: "Groceries")
                 }
             }
@@ -40,7 +42,7 @@ struct AddCategoryView: View {
                 .font(Font.system(size: 20, weight: .medium))
                 .padding(.vertical, 20)
                 .frame(maxWidth: .infinity)
-                .background(.black)
+                .background(.addButton)
                 .foregroundStyle(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .padding(.horizontal)
@@ -66,7 +68,7 @@ private extension View {
                 .padding(.vertical, 20)
                 .frame(maxWidth: .infinity)
                 .background(.gray.opacity(0.2))
-                .foregroundStyle(.black)
+                .foregroundStyle(Color.primary)
         }
         .buttonStyle(.plain)
     }
