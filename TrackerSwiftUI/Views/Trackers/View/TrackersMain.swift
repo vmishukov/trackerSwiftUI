@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct Trackers: View {
+struct TrackersMain: View {
     
+    @ObservedObject private var viewModel = TrackersViewModel()
     @State private var date = Date()
     @State private var isSheetOpen: Bool = false
     @State private var searchText: String = ""
@@ -16,7 +17,8 @@ struct Trackers: View {
     var body: some View {
         NavigationSplitView {
             VStack {
-                Text("Trackers")
+                DisplayedTrackersView()
+                    .environmentObject(viewModel)
             }
             .navigationTitle("Trackers")
             .toolbar() {
@@ -49,5 +51,5 @@ struct Trackers: View {
 }
 
 #Preview {
-    Trackers()
+    TrackersMain()
 }
