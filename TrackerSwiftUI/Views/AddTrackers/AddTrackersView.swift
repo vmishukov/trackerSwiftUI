@@ -46,7 +46,7 @@ private extension AddTrackersView {
                 .padding(.vertical)
                 .frame(maxWidth: .greatestFiniteMagnitude)
                 .foregroundStyle(.white)
-                .background(.black)
+                .background(.addButton)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .circular))
                 .padding(.horizontal)
             

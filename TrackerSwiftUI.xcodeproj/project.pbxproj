@@ -31,6 +31,8 @@
 		91F64E312FE93A950037F2B4 /* DisplayedTrackersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E302FE93A950037F2B4 /* DisplayedTrackersView.swift */; };
 		91F64E342FEBB41B0037F2B4 /* TrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E332FEBB41B0037F2B4 /* TrackerModel.swift */; };
 		91F64E602FEBF30A0037F2B4 /* TrackerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E5F2FEBF30A0037F2B4 /* TrackerLayout.swift */; };
+		91F64E662FED2B870037F2B4 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E652FED2B870037F2B4 /* FiltersView.swift */; };
+		91F64E682FEE42130037F2B4 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E672FEE42130037F2B4 /* FiltersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		91F64E302FE93A950037F2B4 /* DisplayedTrackersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedTrackersView.swift; sourceTree = "<group>"; };
 		91F64E332FEBB41B0037F2B4 /* TrackerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerModel.swift; sourceTree = "<group>"; };
 		91F64E5F2FEBF30A0037F2B4 /* TrackerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerLayout.swift; sourceTree = "<group>"; };
+		91F64E652FED2B870037F2B4 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		91F64E672FEE42130037F2B4 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				9140FDE82EA52AA500152B79 /* ContentView.swift */,
+				91F64E622FED2B440037F2B4 /* Filters */,
 				9140FDEE2EA52AD300152B79 /* Trackers */,
 				91883E942ED8A1D3007DA803 /* AddTrackers */,
 				91883E992EDAD741007DA803 /* NewTrackerView */,
@@ -303,6 +308,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		91F64E622FED2B440037F2B4 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				91F64E632FED2B530037F2B4 /* View */,
+				91F64E642FED2B5A0037F2B4 /* ViewModel */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		91F64E632FED2B530037F2B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91F64E652FED2B870037F2B4 /* FiltersView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91F64E642FED2B5A0037F2B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				91F64E672FEE42130037F2B4 /* FiltersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +414,7 @@
 				91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */,
 				91F64E312FE93A950037F2B4 /* DisplayedTrackersView.swift in Sources */,
 				91F64E342FEBB41B0037F2B4 /* TrackerModel.swift in Sources */,
+				91F64E682FEE42130037F2B4 /* FiltersViewModel.swift in Sources */,
 				91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */,
 				91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */,
 				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
@@ -391,6 +422,7 @@
 				91F64E602FEBF30A0037F2B4 /* TrackerLayout.swift in Sources */,
 				91BD3D362F03D2A3006CB459 /* NewCategoryViewModel.swift in Sources */,
 				91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */,
+				91F64E662FED2B870037F2B4 /* FiltersView.swift in Sources */,
 				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,
 				91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */,
 				91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */,
