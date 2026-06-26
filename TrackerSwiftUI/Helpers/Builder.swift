@@ -14,4 +14,8 @@ struct Builder {
         let viewModel = NewTrackerViewModel(isOneTimeAction: isOneTimeAction)
         return NewTrackerView(viewModel: viewModel)
     }
+    
+    static func makeFiltersView() -> FiltersView {
+        return FiltersView()
+    }
 }

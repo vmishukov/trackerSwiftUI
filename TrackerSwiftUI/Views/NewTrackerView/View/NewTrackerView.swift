@@ -78,7 +78,7 @@ private extension NewTrackerView {
                     .padding()
                     .background {
                         RoundedRectangle(cornerRadius: 16, style: .circular)
-                            .fill(Color.black.opacity(0.8))
+                            .fill(Color.addButton.opacity(0.8))
                     }
             }
             .buttonStyle(.plain)

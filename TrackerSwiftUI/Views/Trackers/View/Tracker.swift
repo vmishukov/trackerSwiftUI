@@ -55,6 +55,24 @@ struct Tracker: View {
                 .padding(.horizontal)
             }
         }
+        .contextMenu {
+            Button {
+                
+            } label: {
+                Label("Pin tracker", systemImage: "pin")
+            }
+            Button {
+                
+            } label: {
+                Label("Edit tracker", systemImage: "square.and.pencil")
+            }
+            Button(role: .destructive) {
+                
+            } label: {
+                Label("delete tracker", systemImage: "trash")
+                
+            }
+        }
     }
 }
 
