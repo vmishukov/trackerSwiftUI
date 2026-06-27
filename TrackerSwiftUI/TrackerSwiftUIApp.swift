@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct TrackerSwiftUIApp: App {
@@ -13,5 +14,6 @@ struct TrackerSwiftUIApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: TrackerCategory.self)
     }
 }

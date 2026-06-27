@@ -15,6 +15,10 @@ struct Builder {
         return NewTrackerView(viewModel: viewModel)
     }
     
+    static func makeNewCategoryView(modelToEdit: TrackerCategory? = nil) -> NewCategoryView {
+        return NewCategoryView(modelToEdit: modelToEdit)
+    }
+    
     static func makeFiltersView() -> FiltersView {
         return FiltersView()
     }

@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewCategoryView: View {
     
+    var modelToEdit: TrackerCategory?
+    
     @StateObject var viewModel = NewCategoryViewModel()
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        Text("New category")
+        Text(modelToEdit == nil ? "New category" : "Edit category")
             .font(Font.system(size: 32, weight: .bold))
             .padding(.top)
         TextField(text: $viewModel.categoryName, label: {
@@ -31,9 +36,15 @@ struct NewCategoryView: View {
         
         Spacer()
         Button {
-            
+            if let modelToEdit {
+                viewModel.editCategory(modelContext: modelContext,
+                                       category: modelToEdit)
+            } else {
+                viewModel.insertCategory(modelContext: modelContext)
+            }
+            dismiss()
         } label: {
-            Text("Add Category")
+            Text(modelToEdit == nil ? "Add Category" : "Save changes")
                 .font(Font.system(size: 20, weight: .medium))
                 .padding(.vertical, 20)
                 .frame(maxWidth: .infinity)
@@ -46,7 +57,6 @@ struct NewCategoryView: View {
         .buttonStyle(.plain)
         .padding(.bottom)
         .disabled(viewModel.categoryName.isEmpty)
-        
     }
 }
 

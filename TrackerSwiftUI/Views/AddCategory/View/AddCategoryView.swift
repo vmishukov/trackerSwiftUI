@@ -6,71 +6,92 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddCategoryView: View {
-    @StateObject var viewModel = AddCategoryViewModel()
+    
+    @ObservedObject var viewModel = AddCategoryViewModel()
+    @Query var categories: [TrackerCategory]
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        Text("Category")
-            .font(Font.system(size: 32, weight: .bold))
-            .padding(.top)
-        Spacer()
-        
-        ScrollView {
-            VStack {
-                LazyVGrid(columns: [.init(.flexible())],
-                          spacing: 0) {
-                    makeCategoryView(with: "Plant trees")
-                    Divider()
-                        .padding(.horizontal)
-                        .background(.gray.opacity(0.2))
-                    makeCategoryView(with: "Shower")
-                    Divider()
-                        .padding(.horizontal)
-                        .background(.gray.opacity(0.2))
-                    makeCategoryView(with: "Groceries")
+        VStack {
+            Text("Category")
+                .font(Font.system(size: 32, weight: .bold))
+                .padding(.top)
+            Spacer()
+            List {
+                ForEach(categories) { category in
+                    VStack(spacing: 0) {
+                        makeCategoryView(with: category)
+                        Divider()
+                            .background(Color.gray.opacity(0.3))
+                            .padding(.horizontal, 16)
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color(.gray).opacity(0.2))
+                    .listRowSeparator(.hidden)
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .circular))
-            .padding()
+            .scrollContentBackground(.hidden)
+            .background(Color.clear)
+            .contentMargins([.all], 16, for: .scrollContent)
+            .listStyle(.insetGrouped)
+            
+            Button {
+                viewModel.newCategoryIsPresented.toggle()
+            } label: {
+                Text("Add Category")
+                    .font(Font.system(size: 20, weight: .medium))
+                    .padding(.vertical, 20)
+                    .frame(maxWidth: .infinity)
+                    .background(.addButton)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .padding(.horizontal)
+                
+            }
+            .buttonStyle(.plain)
+            .padding(.bottom)
+            .sheet(isPresented: $viewModel.newCategoryIsPresented) {
+                Builder.makeNewCategoryView()
+                    .presentationDetents([.medium])
+            }
+            .sheet(isPresented: $viewModel.editCategoryIsPresented) {
+                Builder.makeNewCategoryView(modelToEdit: viewModel.trackerCategoryToEdit)
+                    .presentationDetents([.medium])
+            }
         }
         
-        Button {
-            viewModel.newCategoryIsPresented.toggle()
-        } label: {
-            Text("Add Category")
-                .font(Font.system(size: 20, weight: .medium))
-                .padding(.vertical, 20)
-                .frame(maxWidth: .infinity)
-                .background(.addButton)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                .padding(.horizontal)
-            
-        }
-        .buttonStyle(.plain)
-        .padding(.bottom)
-        .sheet(isPresented: $viewModel.newCategoryIsPresented) {
-            NewCategoryView()
-        }
     }
 }
 
 // MARK: - PRIVATE
-private extension View {
+private extension AddCategoryView {
     
-    func makeCategoryView(with title: String) -> some View {
-        Button {
-            
-        } label: {
-            Text(title)
-                .font(Font.system(size: 20, weight: .regular))
-                .padding(.vertical, 20)
-                .frame(maxWidth: .infinity)
-                .background(.gray.opacity(0.2))
-                .foregroundStyle(Color.primary)
-        }
-        .buttonStyle(.plain)
+    func makeCategoryView(with category: TrackerCategory) -> some View {
+        Text(category.title)
+            .font(Font.system(size: 20, weight: .regular))
+            .padding(.vertical, 20)
+            .frame(maxWidth: .infinity)
+            .foregroundStyle(Color.primary)
+            .swipeActions(allowsFullSwipe: false) {
+                Button {
+                    viewModel.removeTrackerCategory(modelContext: modelContext,
+                                                    model: category)
+                } label: {
+                    Label("Delete", systemImage: "trash.fill")
+                }
+                .tint(.red)
+                
+                Button {
+                    viewModel.trackerCategoryToEdit = category
+                    viewModel.editCategoryIsPresented.toggle()
+                } label: {
+                    Label("Edit", systemImage: "square.and.pencil")
+                }
+                .tint(.indigo)
+            }
     }
 }
 

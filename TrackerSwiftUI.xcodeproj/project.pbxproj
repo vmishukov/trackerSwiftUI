@@ -33,6 +33,7 @@
 		91F64E602FEBF30A0037F2B4 /* TrackerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E5F2FEBF30A0037F2B4 /* TrackerLayout.swift */; };
 		91F64E662FED2B870037F2B4 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E652FED2B870037F2B4 /* FiltersView.swift */; };
 		91F64E682FEE42130037F2B4 /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E672FEE42130037F2B4 /* FiltersViewModel.swift */; };
+		91F64E6B2FEE61D50037F2B4 /* TrackerCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E6A2FEE61D50037F2B4 /* TrackerCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		91F64E5F2FEBF30A0037F2B4 /* TrackerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerLayout.swift; sourceTree = "<group>"; };
 		91F64E652FED2B870037F2B4 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		91F64E672FEE42130037F2B4 /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		91F64E6A2FEE61D50037F2B4 /* TrackerCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 		91F64E322FEBB4020037F2B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91F64E692FEE58F70037F2B4 /* SwiftData */,
 				91F64E332FEBB41B0037F2B4 /* TrackerModel.swift */,
 			);
 			path = Model;
@@ -331,6 +334,14 @@
 				91F64E672FEE42130037F2B4 /* FiltersViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91F64E692FEE58F70037F2B4 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				91F64E6A2FEE61D50037F2B4 /* TrackerCategory.swift */,
+			);
+			path = SwiftData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +425,7 @@
 				91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */,
 				91F64E312FE93A950037F2B4 /* DisplayedTrackersView.swift in Sources */,
 				91F64E342FEBB41B0037F2B4 /* TrackerModel.swift in Sources */,
+				91F64E6B2FEE61D50037F2B4 /* TrackerCategory.swift in Sources */,
 				91F64E682FEE42130037F2B4 /* FiltersViewModel.swift in Sources */,
 				91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */,
 				91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */,

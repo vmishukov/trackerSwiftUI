@@ -138,7 +138,7 @@ private extension NewTrackerView {
     var visualConfigGridView: some View {
         VStack(spacing: 24) {
             LazyVGrid(columns: collectionColumns, spacing: 8) {
-                ForEach(viewModel.emojis, id: \.id) { emoji in
+                ForEach(viewModel.emojis) { emoji in
                     Text(emoji.emoji)
                         .font(Font.system(size: 40))
                         .background {
@@ -151,7 +151,7 @@ private extension NewTrackerView {
                 }
             }
             LazyVGrid(columns: collectionColumns, spacing: 8) {
-                ForEach(viewModel.colors, id: \.id) { colorModel in
+                ForEach(viewModel.colors) { colorModel in
                     RoundedRectangle(cornerRadius: 8)
                         .fill(colorModel.color)
                         .aspectRatio(1, contentMode: .fit)
