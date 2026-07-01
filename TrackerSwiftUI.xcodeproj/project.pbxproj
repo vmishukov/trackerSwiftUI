@@ -17,6 +17,8 @@
 		91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */; };
 		91883EA52EDC52D4007DA803 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA42EDC52D4007DA803 /* Extension.swift */; };
 		91883EA72EDF304E007DA803 /* NewTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA62EDF304E007DA803 /* NewTrackerViewModel.swift */; };
+		919E01DD2FF12480004BE1D3 /* TrackerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E01DC2FF12480004BE1D3 /* TrackerDataModel.swift */; };
+		919E01DF2FF12E20004BE1D3 /* ScheduleWeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E01DE2FF12E20004BE1D3 /* ScheduleWeekDay.swift */; };
 		91B4CEB62F44BFE100384F10 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4CEB52F44BFE100384F10 /* Tracker.swift */; };
 		91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D282EE599E4006CB459 /* AddCategoryView.swift */; };
 		91BD3D2F2EE5A593006CB459 /* NewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D2E2EE5A593006CB459 /* NewCategoryView.swift */; };
@@ -26,7 +28,7 @@
 		91BD3D382F04086D006CB459 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D372F04086D006CB459 /* Builder.swift */; };
 		91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D3C2F0901A8006CB459 /* ScheduleView.swift */; };
 		91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D3E2F0901B3006CB459 /* ScheduleViewModel.swift */; };
-		91BD3D422F090D0B006CB459 /* ScheduleWeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D412F090D0B006CB459 /* ScheduleWeekDay.swift */; };
+		91BD3D422F090D0B006CB459 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D412F090D0B006CB459 /* ScheduleModel.swift */; };
 		91F64E232FE937E90037F2B4 /* TrackersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E222FE937E90037F2B4 /* TrackersViewModel.swift */; };
 		91F64E312FE93A950037F2B4 /* DisplayedTrackersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E302FE93A950037F2B4 /* DisplayedTrackersView.swift */; };
 		91F64E342FEBB41B0037F2B4 /* TrackerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F64E332FEBB41B0037F2B4 /* TrackerModel.swift */; };
@@ -48,6 +50,8 @@
 		91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerColorModel.swift; sourceTree = "<group>"; };
 		91883EA42EDC52D4007DA803 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		91883EA62EDF304E007DA803 /* NewTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerViewModel.swift; sourceTree = "<group>"; };
+		919E01DC2FF12480004BE1D3 /* TrackerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerDataModel.swift; sourceTree = "<group>"; };
+		919E01DE2FF12E20004BE1D3 /* ScheduleWeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWeekDay.swift; sourceTree = "<group>"; };
 		91B4CEB52F44BFE100384F10 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		91BD3D282EE599E4006CB459 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		91BD3D2E2EE5A593006CB459 /* NewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryView.swift; sourceTree = "<group>"; };
@@ -57,7 +61,7 @@
 		91BD3D372F04086D006CB459 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		91BD3D3C2F0901A8006CB459 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		91BD3D3E2F0901B3006CB459 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-		91BD3D412F090D0B006CB459 /* ScheduleWeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWeekDay.swift; sourceTree = "<group>"; };
+		91BD3D412F090D0B006CB459 /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
 		91F64E222FE937E90037F2B4 /* TrackersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersViewModel.swift; sourceTree = "<group>"; };
 		91F64E302FE93A950037F2B4 /* DisplayedTrackersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedTrackersView.swift; sourceTree = "<group>"; };
 		91F64E332FEBB41B0037F2B4 /* TrackerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerModel.swift; sourceTree = "<group>"; };
@@ -289,7 +293,7 @@
 		91BD3D402F090CBD006CB459 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				91BD3D412F090D0B006CB459 /* ScheduleWeekDay.swift */,
+				91BD3D412F090D0B006CB459 /* ScheduleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +303,7 @@
 			children = (
 				91F64E692FEE58F70037F2B4 /* SwiftData */,
 				91F64E332FEBB41B0037F2B4 /* TrackerModel.swift */,
+				919E01DE2FF12E20004BE1D3 /* ScheduleWeekDay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				91F64E6A2FEE61D50037F2B4 /* TrackerCategory.swift */,
+				919E01DC2FF12480004BE1D3 /* TrackerDataModel.swift */,
 			);
 			path = SwiftData;
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				91BD3D342EE5AAF5006CB459 /* CategoryModel.swift in Sources */,
 				91F64E232FE937E90037F2B4 /* TrackersViewModel.swift in Sources */,
 				91BD3D312EE5A5DD006CB459 /* AddCategoryViewModel.swift in Sources */,
+				919E01DD2FF12480004BE1D3 /* TrackerDataModel.swift in Sources */,
 				91B4CEB62F44BFE100384F10 /* Tracker.swift in Sources */,
 				91883EA72EDF304E007DA803 /* NewTrackerViewModel.swift in Sources */,
 				91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */,
@@ -439,9 +446,10 @@
 				91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */,
 				91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */,
 				91BD3D2F2EE5A593006CB459 /* NewCategoryView.swift in Sources */,
-				91BD3D422F090D0B006CB459 /* ScheduleWeekDay.swift in Sources */,
+				91BD3D422F090D0B006CB459 /* ScheduleModel.swift in Sources */,
 				91883EA52EDC52D4007DA803 /* Extension.swift in Sources */,
 				91BD3D382F04086D006CB459 /* Builder.swift in Sources */,
+				919E01DF2FF12E20004BE1D3 /* ScheduleWeekDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

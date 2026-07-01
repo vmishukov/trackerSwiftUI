@@ -1,5 +1,5 @@
 //
-//  ScheduleWeekDay.swift
+//  ScheduleModel.swift
 //  TrackerSwiftUI
 //
 //  Created by Vladislav Mishukov on 03.01.2026.
@@ -8,17 +8,6 @@
 import Foundation
 import SwiftUI
 import Combine
-
-enum ScheduleWeekDay: Codable {
-    
-    case monday
-    case tuesday
-    case wednesday
-    case thursday
-    case friday
-    case saturday
-    case sunday
-}
 
 struct ScheduleModel: Identifiable {
     

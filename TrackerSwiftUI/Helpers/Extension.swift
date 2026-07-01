@@ -50,6 +50,22 @@ extension Color {
         
         self.init(.sRGB, red: red, green: green, blue: blue, opacity: alphaValue)
     }
+    
+    func toHex() -> String? {
+        // 1. Create a default set of environment values to resolve the color context
+        let environment = EnvironmentValues()
+        
+        // 2. Resolve the color in that environment context
+        let resolved = self.resolve(in: environment)
+        
+        // 3. Extract the standard sRGB values (scaled from 0.0-1.0 to 0-255)
+        let r = Int(resolved.red * 255)
+        let g = Int(resolved.green * 255)
+        let b = Int(resolved.blue * 255)
+        
+        // 4. Return the formatted hex string
+        return String(format: "#%02X%02X%02X", r, g, b)
+    }
 }
 
 extension Array {

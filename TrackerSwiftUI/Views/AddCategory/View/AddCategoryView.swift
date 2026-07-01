@@ -10,9 +10,10 @@ import SwiftData
 
 struct AddCategoryView: View {
     
-    @ObservedObject var viewModel = AddCategoryViewModel()
+    @StateObject var viewModel: AddCategoryViewModel
     @Query var categories: [TrackerCategory]
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -24,9 +25,11 @@ struct AddCategoryView: View {
                 ForEach(categories) { category in
                     VStack(spacing: 0) {
                         makeCategoryView(with: category)
-                        Divider()
-                            .background(Color.gray.opacity(0.3))
-                            .padding(.horizontal, 16)
+                        if category.id != categories.last?.id {
+                            Divider()
+                                .background(Color.gray.opacity(0.3))
+                                .padding(.horizontal, 16)
+                        }
                     }
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color(.gray).opacity(0.2))
@@ -92,9 +95,13 @@ private extension AddCategoryView {
                 }
                 .tint(.indigo)
             }
+            .onTapGesture {
+                viewModel.selectedCategory = category
+                dismiss()
+            }
     }
 }
 
 #Preview {
-    AddCategoryView()
+    AddCategoryView(viewModel: AddCategoryViewModel(selectedCategory: .constant(TrackerCategory( title: "Test"))))
 }

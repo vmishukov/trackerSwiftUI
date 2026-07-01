@@ -42,7 +42,6 @@ struct NewCategoryView: View {
             } else {
                 viewModel.insertCategory(modelContext: modelContext)
             }
-            dismiss()
         } label: {
             Text(modelToEdit == nil ? "Add Category" : "Save changes")
                 .font(Font.system(size: 20, weight: .medium))
@@ -57,6 +56,17 @@ struct NewCategoryView: View {
         .buttonStyle(.plain)
         .padding(.bottom)
         .disabled(viewModel.categoryName.isEmpty)
+        .onAppear {
+            viewModel.onDismiss = {
+                dismiss()
+            }
+        }
+        .alert("This category already exists, please pick another name",
+               isPresented: $viewModel.showErrorAlert) {
+            Button { } label: {
+                Text("Ok")
+            }
+        }
     }
 }
 
