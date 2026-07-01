@@ -37,16 +37,16 @@ struct NewTrackerView: View {
             visualConfigGridView
         }
         bottomView
-        .onReceive(viewModel.$isClosing) { isClosing in
-            guard isClosing else { return }
-            dismiss()
-        }
-        .sheet(isPresented: $viewModel.addCategoryIsPresented) {
-            AddCategoryView()
-        }
-        .sheet(isPresented: $viewModel.scheduleIsPresented) {
-            ScheduleView()
-        }
+            .onReceive(viewModel.$isClosing) { isClosing in
+                guard isClosing else { return }
+                dismiss()
+            }
+            .sheet(isPresented: $viewModel.addCategoryIsPresented) {
+                AddCategoryView(viewModel: AddCategoryViewModel(selectedCategory: $viewModel.selectedTrackerCategory))
+            }
+            .sheet(isPresented: $viewModel.scheduleIsPresented) {
+                ScheduleView(viewModel: ScheduleViewModel(selectedSchedule: $viewModel.selectedSchedule))
+            }
     }
 }
 
@@ -87,52 +87,64 @@ private extension NewTrackerView {
     }
     
     var trackersConfigView: some View {
-        ZStack {
-            VStack(spacing: 0) {
+        VStack(spacing: 0) {
+            Button {
+                viewModel.addCategoryIsPresented.toggle()
+            } label: {
+                HStack {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Category")
+                        if let categoryName = viewModel.selectedTrackerCategory?.title {
+                            Text(categoryName)
+                                .font(Font.system(size: 16, weight: .regular))
+                                .opacity(0.8)
+                        }
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 25)
+            }
+            .tint(.text)
+            
+            if !viewModel.isOneTimeAction {
+                RoundedRectangle(cornerRadius: 8, style: .circular)
+                    .fill(.gray)
+                    .frame(height: 1)
+                    .padding(.horizontal)
+                    .opacity(viewModel.isOneTimeAction ? 0 : 1)
                 Button {
-                    viewModel.addCategoryIsPresented.toggle()
+                    viewModel.scheduleIsPresented.toggle()
                 } label: {
                     HStack {
-                        Text("Category")
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Schedule")
+                            if let schedule = viewModel.selectedSchedule {
+                                HStack(spacing: 0) {
+                                    ForEach(schedule , id: \.self) {
+                                        let isLast = $0 == schedule.last
+                                        Text($0.title + (isLast ? "" :", "))
+                                            .font(Font.system(size: 16, weight: .regular))
+                                            .opacity(0.8)
+                                    }
+                                }
+                                
+                            }
+                        }
                         Spacer()
                         Image(systemName: "chevron.forward")
                     }
                     .padding(.horizontal, 20)
                     .padding(.vertical, 25)
-                    .background {
-                        Rectangle()
-                            .fill(.gray.opacity(0.3))
-                    }
                 }
-                .buttonStyle(.plain)
-                if !viewModel.isOneTimeAction {
-                    Button {
-                        viewModel.scheduleIsPresented.toggle()
-                    } label: {
-                        HStack {
-                            Text("Schedule")
-                            Spacer()
-                            Image(systemName: "chevron.forward")
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 25)
-                        .background {
-                            Rectangle()
-                                .fill(.gray.opacity(0.3))
-                        }
-                    }
-                    .buttonStyle(.plain)
-                }
+                .tint(.text)
             }
-            
-            RoundedRectangle(cornerRadius: 8, style: .circular)
-                .fill(.gray)
-                .frame(height: 1)
-                .padding(.horizontal)
-                .opacity(viewModel.isOneTimeAction ? 0 : 1)
         }
+        .background(Color.gray.opacity(0.3))
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .padding(.horizontal, 20)
+        
     }
     
     var visualConfigGridView: some View {

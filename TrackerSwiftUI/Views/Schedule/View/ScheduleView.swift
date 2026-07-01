@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScheduleView: View {
     
-    @StateObject var viewModel = ScheduleViewModel()
+    @StateObject var viewModel: ScheduleViewModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -19,7 +19,7 @@ struct ScheduleView: View {
         ScrollView {
             LazyVGrid(columns: [.init(.flexible())], spacing: 0) {
                 ForEach($viewModel.scheduleDayModels) { $model in
-                    makeItemView(with: model.title, isOn: $model.isOn)
+                    makeItemView(with: $model.title.wrappedValue, isOn: $model.isOn)
                 }
             }
             .background {
@@ -67,5 +67,5 @@ private extension ScheduleView {
 }
 
 #Preview {
-    ScheduleView()
+    ScheduleView(viewModel: ScheduleViewModel(selectedSchedule: .constant([.friday])))
 }

@@ -14,6 +14,9 @@ class TrackerCategory {
     @Attribute(.unique) var uuid: UUID = UUID()
     @Attribute(.unique) var title: String
     
+    @Relationship(deleteRule: .cascade, inverse: \TrackerDataModel.category)
+    var trackers = [TrackerDataModel]()
+    
     init(title: String) {
         self.title = title
     }

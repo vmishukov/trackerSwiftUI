@@ -10,14 +10,17 @@ import SwiftUI
 
 final class ScheduleViewModel: ObservableObject {
     
+    @Binding var selectedSchedule: [ScheduleWeekDay]?
     @Published var scheduleDayModels: [ScheduleModel] = []
     @Published var isClosing: Bool = false
     
-    init() {
+    init(selectedSchedule: Binding<[ScheduleWeekDay]?>) {
+        _selectedSchedule = selectedSchedule
         setupScheduleDayModels()
     }
     
     func doneButtonTapped() {
+        selectedSchedule = scheduleDayModels.filter { $0.isOn }.map { $0.weekDay }
         isClosing = true
     }
 }
