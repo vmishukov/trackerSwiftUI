@@ -10,25 +10,23 @@ import SwiftUI
 struct TrackersMain: View {
     
     @ObservedObject private var viewModel = TrackersViewModel()
-    @State private var date = Date()
+
     @State private var isSheetOpen: Bool = false
     @State private var isFiltersOpen: Bool = false
-    @State private var searchText: String = ""
+    
     
     var body: some View {
         NavigationSplitView {
             VStack {
                 ZStack {
-                    DisplayedTrackersView()
+                    DisplayedTrackersView(predicate: viewModel.makeTrackersFilterPredicate())
                         .environmentObject(viewModel)
                     VStack {
                         Spacer()
                         filterButton
                             .padding(.bottom, 8)
                     }
-                    
                 }
-                
             }
             .navigationTitle("Trackers")
             .toolbar() {
@@ -42,7 +40,7 @@ struct TrackersMain: View {
                 
                 ToolbarItem {
                     DatePicker(
-                        "", selection: $date,
+                        "", selection: $viewModel.date,
                         displayedComponents: [.date]
                     )
                     .labelsHidden()
@@ -55,12 +53,13 @@ struct TrackersMain: View {
         }
         .sheet(isPresented: $isSheetOpen) {
             AddTrackersView()
+                .presentationDetents([.medium])
         }
         .sheet(isPresented: $isFiltersOpen) {
             Builder.makeFiltersView()
                 .presentationDetents([.medium])
         }
-        .searchable(text: $searchText, prompt: "Search a tracker")
+        .searchable(text: $viewModel.searchText, prompt: "Search a tracker")
     }
     
     var filterButton: some View {

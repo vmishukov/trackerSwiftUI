@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DisplayedTrackersView: View {
     
     @EnvironmentObject var viewModel: TrackersViewModel
+    @Query var trackers: [TrackerDataModel]
+    
+    init(predicate: Predicate<TrackerDataModel>) {
+        let sort = SortDescriptor(\TrackerDataModel.title, order: .forward)
+        _trackers = Query(filter: predicate, sort: [sort])
+    }
     
     var body: some View {
         ScrollView {
             ScrollView {
                 TrackerLayout {
-                    ForEach(viewModel.visibleTrackers) {
+                    ForEach(trackers) {
                         Tracker(tracker: $0)
                     }
                 }
@@ -25,6 +32,9 @@ struct DisplayedTrackersView: View {
 }
 
 #Preview {
-    DisplayedTrackersView()
+    let predicate = #Predicate<TrackerDataModel> { tracker in
+        return true
+    }
+    DisplayedTrackersView(predicate: predicate)
         .environmentObject(TrackersViewModel())
 }
