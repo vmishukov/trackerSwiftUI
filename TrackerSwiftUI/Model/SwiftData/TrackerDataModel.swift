@@ -21,10 +21,10 @@ class TrackerDataModel {
     var isPinned: Bool
     var hexColor: String
     
-    var schedule: [ScheduleWeekDay]
+    @Relationship(deleteRule: .nullify) var schedule: [TrackerScheduleModel]
     
     @Transient var color: Color {
-        Color(hexColor)
+        Color(hex: hexColor, alpha: 1)
     }
     
     init(title: String,
@@ -32,7 +32,7 @@ class TrackerDataModel {
          isHabbit: Bool,
          isPinned: Bool,
          hexColor: String,
-         schedule: [ScheduleWeekDay],
+         schedule: [TrackerScheduleModel],
          trackerCategory: TrackerCategory) {
         self.title = title
         self.emoji = emoji

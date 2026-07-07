@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Tracker: View {
     
-    var tracker: TrackerModel
+    var tracker: TrackerDataModel
     
     var body: some View {
         
@@ -24,7 +24,7 @@ struct Tracker: View {
                                     .fill(Color.white)
                                     .opacity(0.5)
                             }
-                        Text(tracker.text)
+                        Text(tracker.title)
                             .font(Font.system(size: 14, weight: .medium))
                             .foregroundStyle(Color(.white))
                     }
@@ -77,6 +77,16 @@ struct Tracker: View {
 }
 
 #Preview {
-    Tracker(tracker: TrackerModel(text: "test", emoji: "🗿", color: .cyan))
+    let previewCategory: TrackerCategory = TrackerCategory(title: "test")
+    let schedule = TrackerScheduleModel(id: UUID(), weekDayNumber: 1)
+    let previewData = TrackerDataModel(title: "ice batch",
+                                       emoji: "🥶",
+                                       isHabbit: true,
+                                       isPinned: false,
+                                       hexColor: "065535",
+                                       schedule: [schedule],
+                                       trackerCategory: previewCategory)
+    
+    Tracker(tracker: previewData)
         .frame(width: 150)
 }

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewTrackerView: View {
     
     @ObservedObject var viewModel: NewTrackerViewModel
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     public init(viewModel: NewTrackerViewModel) {
         self.viewModel = viewModel
@@ -70,7 +72,7 @@ private extension NewTrackerView {
             }
             .buttonStyle(.plain)
             Button {
-                
+                viewModel.createTracker(with: modelContext)
             } label: {
                 Text("Create")
                     .foregroundStyle(.white)
@@ -120,16 +122,16 @@ private extension NewTrackerView {
                     HStack {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("Schedule")
-                            if let schedule = viewModel.selectedSchedule {
-                                HStack(spacing: 0) {
-                                    ForEach(schedule , id: \.self) {
-                                        let isLast = $0 == schedule.last
-                                        Text($0.title + (isLast ? "" :", "))
-                                            .font(Font.system(size: 16, weight: .regular))
-                                            .opacity(0.8)
-                                    }
-                                }
-                                
+                            if let selectedSchedule = viewModel.selectedSchedule {
+                                Text(
+                                    selectedSchedule
+                                        .map { $0.title }
+                                        .joined(separator: ", ")
+                                )
+                                .font(.system(size: 16, weight: .regular))
+                                .opacity(0.8)
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.leading)
                             }
                         }
                         Spacer()
