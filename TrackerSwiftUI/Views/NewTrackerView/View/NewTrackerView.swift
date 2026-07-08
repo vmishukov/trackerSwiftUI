@@ -74,7 +74,7 @@ private extension NewTrackerView {
             Button {
                 viewModel.createTracker(with: modelContext)
             } label: {
-                Text("Create")
+                Text(viewModel.enterButtonTitle)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .greatestFiniteMagnitude)
                     .padding()

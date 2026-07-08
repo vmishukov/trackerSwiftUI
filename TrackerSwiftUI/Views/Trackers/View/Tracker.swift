@@ -11,6 +11,10 @@ struct Tracker: View {
     
     var tracker: TrackerDataModel
     
+    var onDelete: (() -> Void)?
+    var onPin: (() -> Void)?
+    var onEdit: (() -> Void)?
+    
     var body: some View {
         
         VStack {
@@ -57,17 +61,17 @@ struct Tracker: View {
         }
         .contextMenu {
             Button {
-                
+                onPin?()
             } label: {
                 Label("Pin tracker", systemImage: "pin")
             }
             Button {
-                
+                onEdit?()
             } label: {
                 Label("Edit tracker", systemImage: "square.and.pencil")
             }
             Button(role: .destructive) {
-                
+                onDelete?()
             } label: {
                 Label("delete tracker", systemImage: "trash")
                 
@@ -78,7 +82,7 @@ struct Tracker: View {
 
 #Preview {
     let previewCategory: TrackerCategory = TrackerCategory(title: "test")
-    let schedule = TrackerScheduleModel(id: UUID(), weekDayNumber: 1)
+    let schedule = TrackerScheduleModel(weekDayNumber: 1)
     let previewData = TrackerDataModel(title: "ice batch",
                                        emoji: "🥶",
                                        isHabbit: true,

@@ -16,6 +16,7 @@ final class NewTrackerViewModel: ObservableObject {
     let colors = NewTrackerColorModel.makeColorModels()
     
     @Published var titleString: String
+    @Published var enterButtonTitle: String
     
     @Published var addCategoryIsPresented: Bool = false
     @Published var scheduleIsPresented: Bool = false
@@ -32,6 +33,10 @@ final class NewTrackerViewModel: ObservableObject {
         didSet {
             checkCanCreateTracker()
         }
+    }
+    
+    var selectdEmoji: String? {
+        emojis.first(where: { $0.id == selectedEmojiId })?.emoji
     }
     
     @Published var selectedColorId: UUID? {
@@ -54,18 +59,36 @@ final class NewTrackerViewModel: ObservableObject {
         }
     }
     
-    init(isOneTimeAction: Bool) {
+    var trackerToEdit: TrackerDataModel?
+    
+    init(isOneTimeAction: Bool, trackerToEdit: TrackerDataModel? = nil) {
         self.isOneTimeAction = isOneTimeAction
-        titleString = isOneTimeAction ? "New one time action" : "New Habbit"
+        let newOrEditTitle = trackerToEdit == nil ? "New " : "Edit "
+        titleString = newOrEditTitle + (isOneTimeAction ?  "one time action" : "Habbit")
+        enterButtonTitle = trackerToEdit == nil ? "Create" : "Confirm"
+        self.trackerToEdit = trackerToEdit
+        guard let trackerToEdit else { return }
+        setupForEditing(with: trackerToEdit)
     }
     
     func createTracker(with modelContext: ModelContext) {
+        
         guard
             let selectedEmoji = emojis.first(where: { $0.id == selectedEmojiId }),
             let selectedColor = colors.first(where: { $0.id == selectedColorId }),
             let selectedTrackerCategory,
-            let selectedSchedule
+            let selectedSchedule = isOneTimeAction ? ScheduleWeekDay.allCases : selectedSchedule
         else { return }
+        
+        guard trackerToEdit == nil else {
+            trackerToEdit?.category = selectedTrackerCategory
+            trackerToEdit?.title = trackerName
+            trackerToEdit?.hexColor = selectedColor.color.toHex() ?? "000000"
+            trackerToEdit?.emoji = selectedEmoji.emoji
+            trackerToEdit?.schedule = getScheduleModels(modelContext: modelContext, schedule: selectedSchedule)
+            isClosing.toggle()
+            return
+        }
         
         let dataModel = TrackerDataModel(title: trackerName,
                                          emoji: selectedEmoji.emoji,
@@ -88,12 +111,23 @@ final class NewTrackerViewModel: ObservableObject {
 // MARK: - PRIVATE METHODS
 private extension NewTrackerViewModel {
     
+    func setupForEditing(with tracker: TrackerDataModel) {
+        guard let selectedEmojiId = emojis.first(where: { $0.emoji == tracker.emoji })?.id else { return }
+        guard let selectedColorId = colors.first(where: { $0.color.toHex() == tracker.hexColor })?.id else { return }
+        
+        trackerName = tracker.title
+        self.selectedEmojiId = selectedEmojiId
+        self.selectedColorId = selectedColorId
+        selectedSchedule = tracker.schedule.compactMap { ScheduleWeekDay(rawValue: $0.weekDayNumber) }
+        selectedTrackerCategory = tracker.category
+    }
+    
     func checkCanCreateTracker() {
         canCreateTracker = !trackerName.isEmpty &&
         selectedEmojiId != nil &&
         selectedColorId != nil &&
         selectedTrackerCategory != nil &&
-        selectedSchedule?.count != 0
+        ((selectedSchedule?.count != 0 && selectedSchedule != nil) || isOneTimeAction)
     }
     
     func getScheduleModels(modelContext: ModelContext, schedule: [ScheduleWeekDay]) -> [TrackerScheduleModel] {
@@ -120,7 +154,7 @@ private extension NewTrackerViewModel {
         if let existingModel = existingModel.first {
             return existingModel
         } else {
-            let newModel = TrackerScheduleModel(id: UUID(), weekDayNumber: scheduleDay)
+            let newModel = TrackerScheduleModel(weekDayNumber: scheduleDay)
             return newModel
         }
     }

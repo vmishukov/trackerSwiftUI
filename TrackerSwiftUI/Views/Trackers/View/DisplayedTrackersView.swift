@@ -12,6 +12,7 @@ struct DisplayedTrackersView: View {
     
     @EnvironmentObject var viewModel: TrackersViewModel
     @Query var trackers: [TrackerDataModel]
+    @Environment(\.modelContext) var modelContext
     
     init(predicate: Predicate<TrackerDataModel>) {
         let sort = SortDescriptor(\TrackerDataModel.title, order: .forward)
@@ -22,8 +23,17 @@ struct DisplayedTrackersView: View {
         ScrollView {
             ScrollView {
                 TrackerLayout {
-                    ForEach(trackers) {
-                        Tracker(tracker: $0)
+                    ForEach(trackers) { tracker in
+                        Tracker(tracker: tracker,
+                                onDelete: {
+                            viewModel.deleteTracker(modelContext: modelContext, tracker)
+                            
+                        },
+                                onPin: {},
+                                onEdit: {
+                            viewModel.editTracker(tracker)
+                            
+                        })
                     }
                 }
             }

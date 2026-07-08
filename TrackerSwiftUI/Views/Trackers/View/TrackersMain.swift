@@ -10,7 +10,7 @@ import SwiftUI
 struct TrackersMain: View {
     
     @ObservedObject private var viewModel = TrackersViewModel()
-
+    
     @State private var isSheetOpen: Bool = false
     @State private var isFiltersOpen: Bool = false
     
@@ -21,6 +21,7 @@ struct TrackersMain: View {
                 ZStack {
                     DisplayedTrackersView(predicate: viewModel.makeTrackersFilterPredicate())
                         .environmentObject(viewModel)
+                        .padding(.horizontal)
                     VStack {
                         Spacer()
                         filterButton
@@ -58,6 +59,10 @@ struct TrackersMain: View {
         .sheet(isPresented: $isFiltersOpen) {
             Builder.makeFiltersView()
                 .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $viewModel.showEditTracker) {
+            Builder.makeNewTrackerView(isOneTimeAction: !(viewModel.trackerToEdit?.isHabbit ?? true),
+                                       modelToEdit: viewModel.trackerToEdit)
         }
         .searchable(text: $viewModel.searchText, prompt: "Search a tracker")
     }
