@@ -10,8 +10,9 @@ import Foundation
 
 struct Builder {
     
-    static func makeNewTrackerView(isOneTimeAction: Bool = false) -> NewTrackerView {
-        let viewModel = NewTrackerViewModel(isOneTimeAction: isOneTimeAction)
+    static func makeNewTrackerView(isOneTimeAction: Bool = false,
+                                   modelToEdit: TrackerDataModel? = nil) -> NewTrackerView {
+        let viewModel = NewTrackerViewModel(isOneTimeAction: isOneTimeAction, trackerToEdit: modelToEdit)
         return NewTrackerView(viewModel: viewModel)
     }
     

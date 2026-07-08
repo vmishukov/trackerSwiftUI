@@ -11,19 +11,11 @@ import SwiftData
 
 final class TrackersViewModel: ObservableObject {
     
-    var modelContext: ModelContext?
-    var trackerFetchDescriptor: FetchDescriptor<TrackerDataModel>
-    @Published var visibleTrackers: [TrackerDataModel] = []
-    @Published var noDisplayedTrackers: Bool = false
     @Published var searchText: String = ""
     @Published var date = Date()
+    @Published var showEditTracker: Bool = false
     
-    init() {
-        trackerFetchDescriptor = {
-            let descriptor = FetchDescriptor<TrackerDataModel>()
-            return descriptor
-        }()
-    }
+    var trackerToEdit: TrackerDataModel?
     
     func makeTrackersFilterPredicate() -> Predicate<TrackerDataModel> {
         let searchIsEmpty = searchText.isEmpty
@@ -36,5 +28,24 @@ final class TrackersViewModel: ObservableObject {
         }
         return predicate
     }
+    
+    func deleteTracker(modelContext: ModelContext, _ tracker: TrackerDataModel) {
+        modelContext.delete(tracker)
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func editTracker(_ tracker: TrackerDataModel) {
+        trackerToEdit = tracker
+        showEditTracker.toggle()
+    }
+    
+}
+
+// MARK: - PRIVATE EXTENSION
+private extension NewTrackerViewModel {
     
 }
