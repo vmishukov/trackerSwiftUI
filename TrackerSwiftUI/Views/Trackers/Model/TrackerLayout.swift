@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TrackerLayout: Layout {
-    
     private let numberOfColumns: Int
     private let itemSpacing: CGFloat
     
@@ -18,41 +17,49 @@ struct TrackerLayout: Layout {
     }
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let safeProposalWidth = proposal.replacingUnspecifiedDimensions().width
-        let cardWidth = (safeProposalWidth - itemSpacing) / CGFloat(numberOfColumns)
+        guard !subviews.isEmpty else { return .zero }
+        
+        let boundsWidth = proposal.replacingUnspecifiedDimensions().width
+        let totalSpacing = CGFloat(numberOfColumns - 1) * itemSpacing
+        let cardWidth = (boundsWidth - totalSpacing) / CGFloat(numberOfColumns)
+        
         var columnHeights = [CGFloat](repeating: 0.0, count: numberOfColumns)
         
-        for subView in subviews {
+        // Используем enumerated(), чтобы знать порядковый номер элемента
+        for (index, subView) in subviews.enumerated() {
             let height = subView.sizeThatFits(.init(width: cardWidth, height: nil)).height
-            guard let columnIndex = columnHeights.enumerated().min(by: { $0.element < $1.element })?.offset
-            else { continue }
-            guard columnHeights.count > columnIndex else { continue }
+            
+            // Строго распределяем: 0-й в 1-ю колонку, 1-й во 2-ю, 2-й в 1-ю и т.д.
+            let columnIndex = index % numberOfColumns
+            
             if columnHeights[columnIndex] > 0 {
                 columnHeights[columnIndex] += itemSpacing
             }
-            
             columnHeights[columnIndex] += height
         }
         
         return CGSize(
-            width: cardWidth * CGFloat(numberOfColumns) + itemSpacing,
+            width: boundsWidth,
             height: columnHeights.max() ?? .zero
         )
     }
     
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let safeProposalWidth = proposal.replacingUnspecifiedDimensions().width
-        let cardWidth = (safeProposalWidth - itemSpacing) / CGFloat(numberOfColumns)
+        guard !subviews.isEmpty else { return }
+        
+        let totalSpacing = CGFloat(numberOfColumns - 1) * itemSpacing
+        let cardWidth = (bounds.width - totalSpacing) / CGFloat(numberOfColumns)
+        
         var yOffset = [CGFloat](repeating: bounds.minY, count: numberOfColumns)
         
-        for subView in subviews {
-            guard let columnIndex = yOffset.enumerated().min(by: { $0.element < $1.element })?.offset
-            else { continue }
+        // Здесь логика выбора колонки должна строго совпадать со sizeThatFits
+        for (index, subView) in subviews.enumerated() {
+            let columnIndex = index % numberOfColumns
             
-            let xPos = bounds.minX + (cardWidth + itemSpacing) * CGFloat(columnIndex)
-            let height = subView.sizeThatFits(.init(width: cardWidth, height: nil)).height
-            guard yOffset.count > columnIndex else { continue }
+            let xPos = bounds.minX + CGFloat(columnIndex) * (cardWidth + itemSpacing)
             let yPos = yOffset[columnIndex]
+            
+            let height = subView.sizeThatFits(.init(width: cardWidth, height: nil)).height
             
             subView.place(
                 at: CGPoint(x: xPos, y: yPos),
@@ -63,4 +70,3 @@ struct TrackerLayout: Layout {
         }
     }
 }
-
