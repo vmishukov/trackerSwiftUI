@@ -22,6 +22,7 @@ class TrackerDataModel {
     var hexColor: String
     
     @Relationship(deleteRule: .nullify) var schedule: [TrackerScheduleModel]
+    @Relationship(deleteRule: .nullify) var records = [TrackerRecordModel]()
     
     @Transient var color: Color {
         Color(hex: hexColor, alpha: 1)

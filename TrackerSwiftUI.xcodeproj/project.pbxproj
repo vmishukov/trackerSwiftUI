@@ -12,6 +12,7 @@
 		9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */; };
 		9140FDF22EA52B4F00152B79 /* TrackersMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140FDF12EA52B4F00152B79 /* TrackersMain.swift */; };
 		9163B0AC2FFA656600CC5969 /* TrackerScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163B0AB2FFA656600CC5969 /* TrackerScheduleModel.swift */; };
+		9163B0AE2FFE3EC800CC5969 /* TrackerRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163B0AD2FFE3EC800CC5969 /* TrackerRecordModel.swift */; };
 		91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E952ED8A1F9007DA803 /* AddTrackersView.swift */; };
 		91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */; };
 		91883EA02EDC466D007DA803 /* NewTrackerEmojiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */; };
@@ -45,6 +46,7 @@
 		9140FDE92EA52AA500152B79 /* TrackerSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSwiftUIApp.swift; sourceTree = "<group>"; };
 		9140FDF12EA52B4F00152B79 /* TrackersMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersMain.swift; sourceTree = "<group>"; };
 		9163B0AB2FFA656600CC5969 /* TrackerScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerScheduleModel.swift; sourceTree = "<group>"; };
+		9163B0AD2FFE3EC800CC5969 /* TrackerRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerRecordModel.swift; sourceTree = "<group>"; };
 		91883E952ED8A1F9007DA803 /* AddTrackersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackersView.swift; sourceTree = "<group>"; };
 		91883E9A2EDAD7C6007DA803 /* NewTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerView.swift; sourceTree = "<group>"; };
 		91883E9F2EDC466D007DA803 /* NewTrackerEmojiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerEmojiModel.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				91F64E6A2FEE61D50037F2B4 /* TrackerCategory.swift */,
 				919E01DC2FF12480004BE1D3 /* TrackerDataModel.swift */,
 				9163B0AB2FFA656600CC5969 /* TrackerScheduleModel.swift */,
+				9163B0AD2FFE3EC800CC5969 /* TrackerRecordModel.swift */,
 			);
 			path = SwiftData;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,
 				91883E962ED8A1F9007DA803 /* AddTrackersView.swift in Sources */,
 				91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */,
+				9163B0AE2FFE3EC800CC5969 /* TrackerRecordModel.swift in Sources */,
 				91BD3D2F2EE5A593006CB459 /* NewCategoryView.swift in Sources */,
 				91BD3D422F090D0B006CB459 /* ScheduleModel.swift in Sources */,
 				91883EA52EDC52D4007DA803 /* Extension.swift in Sources */,

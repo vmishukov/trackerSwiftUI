@@ -33,7 +33,10 @@ struct DisplayedTrackersView: View {
                                 onEdit: {
                             viewModel.editTracker(tracker)
                             
-                        })
+                        }, onComplete: {
+                            viewModel.completeTracker(modelContext: modelContext,
+                                                      tracker)
+                        }, isComplete: viewModel.checkIfTrackerCompleted(tracker: tracker))
                     }
                 }
             }
