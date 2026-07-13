@@ -20,8 +20,6 @@ struct FiltersView: View {
             VStack(spacing: 0) {
                 makeFilterButton(type: .allTrackers)
                 Divider()
-                makeFilterButton(type: .todaysTrackers)
-                Divider()
                 makeFilterButton(type: .completedTrackers)
                 Divider()
                 makeFilterButton(type: .uncopletedTrackers)

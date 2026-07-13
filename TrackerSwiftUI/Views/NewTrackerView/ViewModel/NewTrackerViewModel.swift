@@ -72,6 +72,14 @@ final class NewTrackerViewModel: ObservableObject {
     }
     
     func createTracker(with modelContext: ModelContext) {
+        defer {
+            do {
+                isClosing.toggle()
+                try modelContext.save()
+            } catch {
+                print ("Error saving: \(error)")
+            }
+        }
         
         guard
             let selectedEmoji = emojis.first(where: { $0.id == selectedEmojiId }),
@@ -86,7 +94,6 @@ final class NewTrackerViewModel: ObservableObject {
             trackerToEdit?.hexColor = selectedColor.color.toHex() ?? "000000"
             trackerToEdit?.emoji = selectedEmoji.emoji
             trackerToEdit?.schedule = getScheduleModels(modelContext: modelContext, schedule: selectedSchedule)
-            isClosing.toggle()
             return
         }
         
@@ -98,12 +105,6 @@ final class NewTrackerViewModel: ObservableObject {
                                          schedule: getScheduleModels(modelContext: modelContext, schedule: selectedSchedule),
                                          trackerCategory: selectedTrackerCategory)
         modelContext.insert(dataModel)
-        do {
-            try modelContext.save()
-            isClosing.toggle()
-        } catch {
-            print ("Error saving: \(error)")
-        }
     }
     
 }

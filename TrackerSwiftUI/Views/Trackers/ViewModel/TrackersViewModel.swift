@@ -11,6 +11,7 @@ import SwiftData
 
 final class TrackersViewModel: ObservableObject {
     
+    var modelContext: ModelContext?
     @Published var searchText: String = ""
     @Published var date = Date()
     @Published var showEditTracker: Bool = false
@@ -45,8 +46,7 @@ final class TrackersViewModel: ObservableObject {
         showEditTracker.toggle()
     }
     
-    func completeTracker(modelContext: ModelContext,
-                         _ tracker: TrackerDataModel) {
+    func completeTracker(_ tracker: TrackerDataModel) {
         if let record = tracker.records.first(where: { $0.date.onlyDate == date.onlyDate }),
            let index = tracker.records.firstIndex(of: record) {
             tracker.records.remove(at: index)
@@ -56,6 +56,14 @@ final class TrackersViewModel: ObservableObject {
             let record = TrackerRecordModel(date: startOfDay, tracker: tracker)
             tracker.records.append(record)
         }
+        saveModelContext()
+    }
+    
+    func pinTracker(modelContext: ModelContext, _ tracker: TrackerDataModel) {
+        // 1. Меняем значения
+        tracker.isPinned.toggle()
+        tracker.isPinnedSort = tracker.isPinned ? 1 : 0
+        try? modelContext.save()
     }
     
     func checkIfTrackerCompleted(tracker: TrackerDataModel) -> Bool {
@@ -65,6 +73,13 @@ final class TrackersViewModel: ObservableObject {
 }
 
 // MARK: - PRIVATE EXTENSION
-private extension NewTrackerViewModel {
+private extension TrackersViewModel {
     
+    func saveModelContext() {
+        do {
+            try modelContext?.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

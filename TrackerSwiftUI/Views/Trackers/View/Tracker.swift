@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Tracker: View {
     
-    var tracker: TrackerDataModel
-    
-    var onDelete: (() -> Void)?
-    var onPin: (() -> Void)?
-    var onEdit: (() -> Void)?
-    var onComplete: () -> Void
+    @Bindable var tracker: TrackerDataModel
     var isComplete: Bool
+    var onComplete: (TrackerDataModel) -> Void
     
     var body: some View {
         
@@ -23,13 +20,21 @@ struct Tracker: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(tracker.emoji)
-                            .padding(4)
-                            .background {
-                                Capsule()
-                                    .fill(Color.white)
-                                    .opacity(0.5)
+                        HStack {
+                            Text(tracker.emoji)
+                                .padding(4)
+                                .background {
+                                    Capsule()
+                                        .fill(Color.white)
+                                        .opacity(0.5)
+                                }
+                            Spacer()
+                            if tracker.isPinned {
+                                Image(systemName: "pin.fill")
+                                    .offset(x: 16, y: -10)
+                                    .foregroundStyle(Color.white.opacity(0.8))
                             }
+                        }
                         Text(tracker.title)
                             .font(Font.system(size: 14, weight: .medium))
                             .foregroundStyle(Color(.white))
@@ -47,30 +52,13 @@ struct Tracker: View {
                     makeOneTimeActionView()
                 }
             }
-        }
-        .contextMenu {
-            Button {
-                onPin?()
-            } label: {
-                Label("Pin tracker", systemImage: "pin")
-            }
-            Button {
-                onEdit?()
-            } label: {
-                Label("Edit tracker", systemImage: "square.and.pencil")
-            }
-            Button(role: .destructive) {
-                onDelete?()
-            } label: {
-                Label("delete tracker", systemImage: "trash")
-                
-            }
+            .padding(.top, 4)
         }
     }
     
     func makeOneTimeActionView() -> some View {
         Button {
-            onComplete()
+            //  onComplete(tracker)
         } label: {
             Image(systemName: isComplete ? "checkmark" : "plus")
                 .foregroundStyle(isComplete ? Color(.white) : tracker.color)
@@ -97,7 +85,7 @@ struct Tracker: View {
                 .font(Font.system(size: 14, weight: .medium))
             Spacer()
             Button {
-                onComplete()
+                onComplete(tracker)
             } label: {
                 Image(systemName: isComplete ? "checkmark" : "plus")
                     .foregroundStyle(Color(.white))
@@ -118,12 +106,12 @@ struct Tracker: View {
     let schedule = TrackerScheduleModel(weekDayNumber: 1)
     let previewData = TrackerDataModel(title: "ice batch",
                                        emoji: "🥶",
-                                       isHabbit: false,
+                                       isHabbit: true,
                                        isPinned: false,
                                        hexColor: "065535",
                                        schedule: [schedule],
                                        trackerCategory: previewCategory)
-    
-    Tracker(tracker: previewData, onComplete: {}, isComplete: false)
-        .frame(width: 150)
+
+    Tracker(tracker: previewData, isComplete: false, onComplete: {_ in })
+        .frame(width: 150, height: 150)
 }
