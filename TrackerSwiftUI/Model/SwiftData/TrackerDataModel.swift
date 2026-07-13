@@ -21,6 +21,8 @@ class TrackerDataModel {
     var isPinned: Bool
     var hexColor: String
     
+    var isPinnedSort: UInt8
+    
     @Relationship(deleteRule: .nullify) var schedule: [TrackerScheduleModel]
     @Relationship(deleteRule: .nullify) var records = [TrackerRecordModel]()
     
@@ -42,5 +44,6 @@ class TrackerDataModel {
         self.category = trackerCategory
         self.schedule = schedule
         self.hexColor = hexColor
+        isPinnedSort = isPinned ? 1 : 0
     }
 }

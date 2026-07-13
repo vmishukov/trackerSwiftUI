@@ -11,7 +11,6 @@ import Combine
 enum TrackerFilterType {
     
     case allTrackers
-    case todaysTrackers
     case completedTrackers
     case uncopletedTrackers
     
@@ -22,8 +21,6 @@ enum TrackerFilterType {
             
         case .allTrackers:
             "All Trackers"
-        case .todaysTrackers:
-            "Todays Trackers"
         case .completedTrackers:
             "Completed Trackers"
         case .uncopletedTrackers:
