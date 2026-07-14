@@ -9,8 +9,12 @@ import SwiftUI
 
 struct FiltersView: View {
     
-    @ObservedObject private var viewModel = FiltersViewModel()
+    @ObservedObject private var viewModel: FiltersViewModel
     @Environment(\.dismiss) private var dismiss
+    
+    init(viewModel: FiltersViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         Text("Filters")
@@ -78,5 +82,5 @@ struct FiltersView: View {
 }
 
 #Preview {
-    FiltersView()
+    FiltersView(viewModel: FiltersViewModel(selectedFilter: .constant(.allTrackers)))
 }

@@ -15,6 +15,7 @@ final class TrackersViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var date = Date()
     @Published var showEditTracker: Bool = false
+    @Published var selectedFilter: TrackerFilterType = .allTrackers
     
     var trackerToEdit: TrackerDataModel?
     
@@ -23,13 +24,32 @@ final class TrackersViewModel: ObservableObject {
         let calendar = Calendar.current
         let filterDay = Int(calendar.component(.weekday, from: date))
         let startOfDay = calendar.startOfDay(for: date)
-        let predicate = #Predicate<TrackerDataModel> { tracker in
-            return (tracker.title.contains(searchText) || searchIsEmpty)
-            && (tracker.schedule.contains(where: { $0.weekDayNumber == filterDay }))
-            && (tracker.isHabbit || (tracker.records.isEmpty
-                                     || tracker.records.contains(where: { $0.date == startOfDay })))
+        
+        switch selectedFilter {
+        case .allTrackers:
+            return #Predicate<TrackerDataModel> { tracker in
+                return (tracker.title.contains(searchText) || searchIsEmpty)
+                && (tracker.schedule.contains(where: { $0.weekDayNumber == filterDay }))
+                && (tracker.isHabbit || (tracker.records.isEmpty
+                                         || tracker.records.contains(where: { $0.date == startOfDay })))
+            }
+        case .completedTrackers:
+            return #Predicate<TrackerDataModel> { tracker in
+                return (tracker.title.contains(searchText) || searchIsEmpty)
+                && (tracker.schedule.contains(where: { $0.weekDayNumber == filterDay }))
+                && (tracker.isHabbit || (tracker.records.isEmpty
+                                         || tracker.records.contains(where: { $0.date == startOfDay })))
+                && ( tracker.records.contains(where: { $0.date == startOfDay }))
+            }
+        case .uncopletedTrackers:
+            return #Predicate<TrackerDataModel> { tracker in
+                return (tracker.title.contains(searchText) || searchIsEmpty)
+                && (tracker.schedule.contains(where: { $0.weekDayNumber == filterDay }))
+                && (tracker.isHabbit || (tracker.records.isEmpty
+                                         || tracker.records.contains(where: { $0.date == startOfDay })))
+                && ( !tracker.records.contains(where: { $0.date == startOfDay }))
+            }
         }
-        return predicate
     }
     
     func deleteTracker(modelContext: ModelContext, _ tracker: TrackerDataModel) {

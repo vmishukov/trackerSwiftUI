@@ -57,7 +57,7 @@ struct TrackersMain: View {
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $isFiltersOpen) {
-            Builder.makeFiltersView()
+            Builder.makeFiltersView(selectedFilter: $viewModel.selectedFilter)
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $viewModel.showEditTracker) {

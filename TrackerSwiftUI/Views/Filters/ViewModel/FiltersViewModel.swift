@@ -31,10 +31,13 @@ enum TrackerFilterType {
 
 final class FiltersViewModel: ObservableObject {
     
-    @Published var selectedFilter: TrackerFilterType = .allTrackers
+    @Binding var selectedFilter: TrackerFilterType
+    
+    init(selectedFilter: Binding<TrackerFilterType>) {
+        _selectedFilter = selectedFilter
+    }
     
     func selectFilter(_ filter: TrackerFilterType) {
-        
         selectedFilter = filter
     }
 }

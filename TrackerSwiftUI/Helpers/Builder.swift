@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 struct Builder {
     
@@ -20,7 +20,7 @@ struct Builder {
         return NewCategoryView(modelToEdit: modelToEdit)
     }
     
-    static func makeFiltersView() -> FiltersView {
-        return FiltersView()
+    static func makeFiltersView(selectedFilter: Binding<TrackerFilterType>) -> FiltersView {
+        return FiltersView(viewModel: FiltersViewModel(selectedFilter: selectedFilter))
     }
 }
