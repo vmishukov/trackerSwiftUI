@@ -58,7 +58,7 @@ struct Tracker: View {
     
     func makeOneTimeActionView() -> some View {
         Button {
-            //  onComplete(tracker)
+            onComplete(tracker)
         } label: {
             Image(systemName: isComplete ? "checkmark" : "plus")
                 .foregroundStyle(isComplete ? Color(.white) : tracker.color)
@@ -111,7 +111,7 @@ struct Tracker: View {
                                        hexColor: "065535",
                                        schedule: [schedule],
                                        trackerCategory: previewCategory)
-
+    
     Tracker(tracker: previewData, isComplete: false, onComplete: {_ in })
         .frame(width: 150, height: 150)
 }
