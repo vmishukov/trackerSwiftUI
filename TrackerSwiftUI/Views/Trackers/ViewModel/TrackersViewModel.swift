@@ -67,14 +67,15 @@ final class TrackersViewModel: ObservableObject {
     }
     
     func completeTracker(_ tracker: TrackerDataModel) {
-        if let record = tracker.records.first(where: { $0.date.onlyDate == date.onlyDate }),
-           let index = tracker.records.firstIndex(of: record) {
-            tracker.records.remove(at: index)
+        if let record = tracker.records.first(where: { $0.date.onlyDate == date.onlyDate }) {
+            tracker.removeRecord(record)
+            modelContext?.delete(record)
         } else {
             let calendar = Calendar.current
             let startOfDay = calendar.startOfDay(for: date)
             let record = TrackerRecordModel(date: startOfDay, tracker: tracker)
             tracker.records.append(record)
+            tracker.addRecord(record)
         }
         saveModelContext()
     }

@@ -23,8 +23,9 @@ class TrackerDataModel {
     
     var isPinnedSort: UInt8
     
+    var recordsCount: Int = 0
     @Relationship(deleteRule: .nullify) var schedule: [TrackerScheduleModel]
-    @Relationship(deleteRule: .nullify) var records = [TrackerRecordModel]()
+    @Relationship(deleteRule: .cascade) var records = [TrackerRecordModel]()
     
     @Transient var color: Color {
         Color(hex: hexColor, alpha: 1)
@@ -45,5 +46,16 @@ class TrackerDataModel {
         self.schedule = schedule
         self.hexColor = hexColor
         isPinnedSort = isPinned ? 1 : 0
+    }
+    
+    func addRecord(_ record: TrackerRecordModel) {
+        self.records.append(record)
+        self.recordsCount = self.records.count
+    }
+    
+    func removeRecord(_ record: TrackerRecordModel) {
+        guard let index = self.records.firstIndex(of: record) else { return }
+        records.remove(at: index)
+        self.recordsCount = self.records.count
     }
 }

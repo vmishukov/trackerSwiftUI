@@ -81,7 +81,7 @@ struct Tracker: View {
     
     func makeHabbitBottomView() -> some View {
         HStack {
-            Text("\(tracker.records.count) completed")
+            Text("\(tracker.recordsCount) completed")
                 .font(Font.system(size: 14, weight: .medium))
             Spacer()
             Button {
