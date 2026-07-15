@@ -19,8 +19,11 @@
 		91883EA22EDC51AC007DA803 /* NewTrackerColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */; };
 		91883EA52EDC52D4007DA803 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA42EDC52D4007DA803 /* Extension.swift */; };
 		91883EA72EDF304E007DA803 /* NewTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91883EA62EDF304E007DA803 /* NewTrackerViewModel.swift */; };
+		918F10CD300661EE00591034 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F10CC300661EE00591034 /* StatisticsView.swift */; };
+		918F10CF3007611600591034 /* CompletedTrackersStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F10CE3007611600591034 /* CompletedTrackersStatView.swift */; };
 		919E01DD2FF12480004BE1D3 /* TrackerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E01DC2FF12480004BE1D3 /* TrackerDataModel.swift */; };
 		919E01DF2FF12E20004BE1D3 /* ScheduleWeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E01DE2FF12E20004BE1D3 /* ScheduleWeekDay.swift */; };
+		91A52EC63007A7510076FC08 /* MostTrackedStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A52EC53007A7510076FC08 /* MostTrackedStatView.swift */; };
 		91B4CEB62F44BFE100384F10 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4CEB52F44BFE100384F10 /* Tracker.swift */; };
 		91BD3D292EE599E4006CB459 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D282EE599E4006CB459 /* AddCategoryView.swift */; };
 		91BD3D2F2EE5A593006CB459 /* NewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD3D2E2EE5A593006CB459 /* NewCategoryView.swift */; };
@@ -53,8 +56,11 @@
 		91883EA12EDC51AC007DA803 /* NewTrackerColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerColorModel.swift; sourceTree = "<group>"; };
 		91883EA42EDC52D4007DA803 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		91883EA62EDF304E007DA803 /* NewTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackerViewModel.swift; sourceTree = "<group>"; };
+		918F10CC300661EE00591034 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		918F10CE3007611600591034 /* CompletedTrackersStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTrackersStatView.swift; sourceTree = "<group>"; };
 		919E01DC2FF12480004BE1D3 /* TrackerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerDataModel.swift; sourceTree = "<group>"; };
 		919E01DE2FF12E20004BE1D3 /* ScheduleWeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWeekDay.swift; sourceTree = "<group>"; };
+		91A52EC53007A7510076FC08 /* MostTrackedStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostTrackedStatView.swift; sourceTree = "<group>"; };
 		91B4CEB52F44BFE100384F10 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		91BD3D282EE599E4006CB459 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		91BD3D2E2EE5A593006CB459 /* NewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryView.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 				91BD3D262EE599AB006CB459 /* AddCategory */,
 				91BD3D272EE599C0006CB459 /* NewCategory */,
 				91BD3D392F09017B006CB459 /* Schedule */,
+				918F10C93006615700591034 /* Statistics */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +212,32 @@
 				91BD3D372F04086D006CB459 /* Builder.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		918F10C93006615700591034 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				918F10CA3006617900591034 /* View */,
+				918F10CB3006618100591034 /* ViewModel */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		918F10CA3006617900591034 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				918F10CC300661EE00591034 /* StatisticsView.swift */,
+				918F10CE3007611600591034 /* CompletedTrackersStatView.swift */,
+				91A52EC53007A7510076FC08 /* MostTrackedStatView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		918F10CB3006618100591034 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		91BD3D262EE599AB006CB459 /* AddCategory */ = {
@@ -426,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91BD3D342EE5AAF5006CB459 /* CategoryModel.swift in Sources */,
+				918F10CD300661EE00591034 /* StatisticsView.swift in Sources */,
 				91F64E232FE937E90037F2B4 /* TrackersViewModel.swift in Sources */,
 				91BD3D312EE5A5DD006CB459 /* AddCategoryViewModel.swift in Sources */,
 				919E01DD2FF12480004BE1D3 /* TrackerDataModel.swift in Sources */,
@@ -436,6 +470,7 @@
 				91F64E312FE93A950037F2B4 /* DisplayedTrackersView.swift in Sources */,
 				91F64E6B2FEE61D50037F2B4 /* TrackerCategory.swift in Sources */,
 				91F64E682FEE42130037F2B4 /* FiltersViewModel.swift in Sources */,
+				91A52EC63007A7510076FC08 /* MostTrackedStatView.swift in Sources */,
 				91BD3D3F2F0901B3006CB459 /* ScheduleViewModel.swift in Sources */,
 				91BD3D3D2F0901A8006CB459 /* ScheduleView.swift in Sources */,
 				9140FDEC2EA52AA500152B79 /* ContentView.swift in Sources */,
@@ -443,6 +478,7 @@
 				9163B0AC2FFA656600CC5969 /* TrackerScheduleModel.swift in Sources */,
 				91F64E602FEBF30A0037F2B4 /* TrackerLayout.swift in Sources */,
 				91BD3D362F03D2A3006CB459 /* NewCategoryViewModel.swift in Sources */,
+				918F10CF3007611600591034 /* CompletedTrackersStatView.swift in Sources */,
 				91883E9B2EDAD7C6007DA803 /* NewTrackerView.swift in Sources */,
 				91F64E662FED2B870037F2B4 /* FiltersView.swift in Sources */,
 				9140FDED2EA52AA500152B79 /* TrackerSwiftUIApp.swift in Sources */,

@@ -20,15 +20,31 @@ struct DisplayedTrackersView: View {
     }
     
     var body: some View {
-        ScrollView {
-            TrackerLayout {
-                ForEach(trackers) { tracker in
-                    TrackerCardRow(tracker: tracker, viewModel: viewModel)
+        if trackers.isEmpty {
+            emptyView
+                .opacity(0.3)
+        } else {
+            ScrollView {
+                TrackerLayout {
+                    ForEach(trackers) { tracker in
+                        TrackerCardRow(tracker: tracker, viewModel: viewModel)
+                    }
                 }
             }
+            .onAppear {
+                viewModel.modelContext = modelContext
+            }
         }
-        .onAppear {
-            viewModel.modelContext = modelContext
+    }
+    
+    var emptyView: some View {
+        VStack {
+            Image(.emptyChel)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 200)
+            Text("let's track!")
+                .font(Font.system(size: 25, weight: .regular))
         }
     }
 }

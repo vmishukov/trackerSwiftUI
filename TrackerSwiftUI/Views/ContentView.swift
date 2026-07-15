@@ -25,10 +25,8 @@ struct ContentView: View {
                 }
                 .tag(Tabs.tracker)
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, nibba!")
+              StatisticsView()
+                    .navigationTitle("Statistics")
             }
             .padding()
             .tabItem {
