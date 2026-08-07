@@ -1,0 +1,42 @@
+//
+//  ContentView.swift
+//  TrackerSwiftUI
+//
+//  Created by Vladislav Mishukov on 12.10.2025.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    
+    @State private var selectedTab: Tabs = .statistic
+    
+    enum Tabs {
+        case tracker
+        case statistic
+    }
+    
+    var body: some View {
+        
+        TabView(selection: $selectedTab) {
+            TrackersMain()
+                .tabItem {
+                    Label("Tracker", systemImage: "long.text.page.and.pencil.fill")
+                }
+                .tag(Tabs.tracker)
+            VStack {
+              StatisticsView()
+                    .navigationTitle("Statistics")
+            }
+            .padding()
+            .tabItem {
+                Label("Statistic", systemImage: "chart.bar.xaxis" )
+            }
+            .tag(Tabs.tracker)
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
