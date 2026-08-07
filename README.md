@@ -7,8 +7,9 @@ A task tracker that enables users to create, edit, and prioritize tasks and one-
 ### Task creation
 
 Make new tasks and one time actions.
-</p align="center">
+<p align="center">
 <img width="320" alt="Add new tracker" src="https://github.com/user-attachments/assets/bfeba211-a758-438a-bd0c-172da0bbf38f" />
+</p>
 <p align="center">
   
 <img width="320" alt="New habbit" src="https://github.com/user-attachments/assets/8b29aedb-a068-454a-b627-3cccaf610fec" />
