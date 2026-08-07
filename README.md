@@ -17,8 +17,8 @@ Make new tasks and one time actions.
 Select a schedule and add categories
 
 <p align="center">
-<img width="320" height="2622" alt="Schedule" src="https://github.com/user-attachments/assets/db8babae-0b4a-4980-8ab1-4121a6015d39" />
-<img width="320" height="2622" alt="Category" src="https://github.com/user-attachments/assets/73aac6df-c1bb-4c10-8b14-c639bc274a84" />
+<img width="320" alt="Schedule" src="https://github.com/user-attachments/assets/db8babae-0b4a-4980-8ab1-4121a6015d39" />
+<img width="320" alt="Category" src="https://github.com/user-attachments/assets/73aac6df-c1bb-4c10-8b14-c639bc274a84" />
 
 
 ---
