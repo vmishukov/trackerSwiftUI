@@ -24,7 +24,7 @@ struct NewCategoryView: View {
             Text("Enter category name")
                 .padding(.vertical)
         })
-        .onChange(of: viewModel.categoryName) { newValue, _ in
+        .onChange(of: viewModel.categoryName) { _ , newValue in
             viewModel.checkCategoryNameLenght()
         }
         .padding(.horizontal)

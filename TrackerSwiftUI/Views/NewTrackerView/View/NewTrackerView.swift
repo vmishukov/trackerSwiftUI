@@ -11,11 +11,14 @@ import SwiftData
 struct NewTrackerView: View {
     
     @ObservedObject var viewModel: NewTrackerViewModel
+    var addTrackerClose: Binding<Bool>?
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     
-    public init(viewModel: NewTrackerViewModel) {
+    public init(viewModel: NewTrackerViewModel,
+                addTrackerClose: Binding<Bool>?) {
         self.viewModel = viewModel
+        self.addTrackerClose = addTrackerClose
     }
     
     private var collectionColumns = Array(repeating: GridItem(.flexible()), count: 6)
@@ -42,6 +45,7 @@ struct NewTrackerView: View {
             .onReceive(viewModel.$isClosing) { isClosing in
                 guard isClosing else { return }
                 dismiss()
+                addTrackerClose?.wrappedValue = true
             }
             .sheet(isPresented: $viewModel.addCategoryIsPresented) {
                 AddCategoryView(viewModel: AddCategoryViewModel(selectedCategory: $viewModel.selectedTrackerCategory))
@@ -188,5 +192,5 @@ private extension NewTrackerView {
 }
 
 #Preview {
-    NewTrackerView(viewModel: NewTrackerViewModel(isOneTimeAction: false))
+    NewTrackerView(viewModel: NewTrackerViewModel(isOneTimeAction: false), addTrackerClose: .constant(false))
 }

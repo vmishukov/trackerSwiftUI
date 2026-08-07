@@ -14,7 +14,6 @@ struct TrackersMain: View {
     @State private var isSheetOpen: Bool = false
     @State private var isFiltersOpen: Bool = false
     
-    
     var body: some View {
         NavigationSplitView {
             VStack {

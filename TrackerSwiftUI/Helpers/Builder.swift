@@ -11,9 +11,12 @@ import SwiftUI
 struct Builder {
     
     static func makeNewTrackerView(isOneTimeAction: Bool = false,
-                                   modelToEdit: TrackerDataModel? = nil) -> NewTrackerView {
+                                   modelToEdit: TrackerDataModel? = nil,
+                                   addTrackerClose: Binding<Bool>? = nil
+    
+    ) -> NewTrackerView {
         let viewModel = NewTrackerViewModel(isOneTimeAction: isOneTimeAction, trackerToEdit: modelToEdit)
-        return NewTrackerView(viewModel: viewModel)
+        return NewTrackerView(viewModel: viewModel, addTrackerClose: addTrackerClose)
     }
     
     static func makeNewCategoryView(modelToEdit: TrackerCategory? = nil) -> NewCategoryView {
