@@ -8,14 +8,21 @@
 import SwiftUI
 import SwiftData
 
+enum TrackerActionStatus {
+    
+    case completed
+    case removeComplete
+    case error
+}
+
 struct Tracker: View {
     
     @Bindable var tracker: TrackerDataModel
     var isComplete: Bool
-    var onComplete: (TrackerDataModel) -> Void
+    var onComplete: (TrackerDataModel) -> TrackerActionStatus
+    @State private var emitCount = 0
     
     var body: some View {
-        
         VStack {
             VStack {
                 HStack {
@@ -53,12 +60,25 @@ struct Tracker: View {
                 }
             }
             .padding(.top, 4)
+            .overlay(
+                EmojiEmitterView(emojis: [tracker.emoji], emitCount: $emitCount)
+                    .edgesIgnoringSafeArea(.all)
+                    .allowsHitTesting(false)
+            )
         }
     }
     
     func makeOneTimeActionView() -> some View {
         Button {
-            onComplete(tracker)
+            switch onComplete(tracker) {
+                
+            case .completed:
+                emitCount += 1
+            case .removeComplete:
+                break
+            case .error:
+                break
+            }
         } label: {
             Image(systemName: isComplete ? "checkmark" : "plus")
                 .foregroundStyle(isComplete ? Color(.white) : tracker.color)
@@ -85,7 +105,15 @@ struct Tracker: View {
                 .font(Font.system(size: 14, weight: .medium))
             Spacer()
             Button {
-                onComplete(tracker)
+                switch onComplete(tracker) {
+                case .completed:
+                    emitCount += 1
+                    playSuccessVibration()
+                case .removeComplete:
+                    break
+                case .error:
+                    playErrorVibration()
+                }
             } label: {
                 Image(systemName: isComplete ? "checkmark" : "plus")
                     .foregroundStyle(Color(.white))
@@ -98,6 +126,18 @@ struct Tracker: View {
             .buttonStyle(.plain)
         }
         .padding(.horizontal)
+    }
+    
+    func playSuccessVibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(.success)
+    }
+    
+    func playErrorVibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(.error)
     }
 }
 
@@ -112,6 +152,6 @@ struct Tracker: View {
                                        schedule: [schedule],
                                        trackerCategory: previewCategory)
     
-    Tracker(tracker: previewData, isComplete: false, onComplete: {_ in })
+    Tracker(tracker: previewData, isComplete: false, onComplete: { _ in return .completed})
         .frame(width: 150, height: 150)
 }

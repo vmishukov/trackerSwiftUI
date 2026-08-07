@@ -66,18 +66,25 @@ final class TrackersViewModel: ObservableObject {
         showEditTracker.toggle()
     }
     
-    func completeTracker(_ tracker: TrackerDataModel) {
+    func completeTracker(_ tracker: TrackerDataModel) -> TrackerActionStatus {
+        var currentStatus: TrackerActionStatus = .completed
         if let record = tracker.records.first(where: { $0.date.onlyDate == date.onlyDate }) {
             tracker.removeRecord(record)
             modelContext?.delete(record)
+            currentStatus = .removeComplete
         } else {
             let calendar = Calendar.current
             let startOfDay = calendar.startOfDay(for: date)
+            guard Date() >= startOfDay else {
+                currentStatus = .error
+                return currentStatus
+            }
             let record = TrackerRecordModel(date: startOfDay, tracker: tracker)
             tracker.records.append(record)
             tracker.addRecord(record)
         }
         saveModelContext()
+        return currentStatus
     }
     
     func pinTracker(modelContext: ModelContext, _ tracker: TrackerDataModel) {

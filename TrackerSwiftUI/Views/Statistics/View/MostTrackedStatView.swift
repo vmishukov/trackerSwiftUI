@@ -29,7 +29,7 @@ struct MostTrackedStatView: View {
             GeometryReader { proxy in
                 Tracker(tracker: tracker,
                         isComplete: false,
-                        onComplete: {_ in })
+                        onComplete: {_ in .removeComplete })
                 .frame(width: proxy.size.width / 2)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }

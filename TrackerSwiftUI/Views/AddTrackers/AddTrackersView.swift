@@ -11,6 +11,8 @@ struct AddTrackersView: View {
     
     @State private var newTrackerViewIsPresented: Bool = false
     @State private var oneTimeActionIsPresented: Bool = false
+    @State private var shouldClose: Bool = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -28,10 +30,15 @@ struct AddTrackersView: View {
             Spacer()
         }
         .sheet(isPresented: $newTrackerViewIsPresented) {
-            Builder.makeNewTrackerView()
+            Builder.makeNewTrackerView(addTrackerClose: $shouldClose)
         }
         .sheet(isPresented: $oneTimeActionIsPresented) {
-            Builder.makeNewTrackerView(isOneTimeAction: true)
+            Builder.makeNewTrackerView(isOneTimeAction: true, addTrackerClose: $shouldClose)
+        }
+        .onChange(of: shouldClose) { oldValue , newValue in
+            if newValue{
+                dismiss()
+            }
         }
     }
 }
